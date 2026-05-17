@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athar Jamil — Graphics Designer & Video Editor</title>
+  <meta name="description" content="Premium portfolio of Athar Jamil — Graphics Designer & Video Editor. Crafting visual stories through design and motion." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================== PRELOADER ======================== -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="assets/logo.png" alt="Athar Jamil Logo" id="preloader-logo-img" onerror="this.style.display='none'" />
+        <span class="preloader-initials">AJ</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-fill"></div>
+      </div>
+      <p class="preloader-text">Loading Experience<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+    </div>
+    <div class="preloader-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="assets/logo.png" alt="Athar Jamil" onerror="this.style.display='none'" />
+        <span>Athar<em>Jamil</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+      </ul>
+      <a href="#contact" class="nav-cta btn-glow">Hire Me</a>
+      <a href="admin.html" class="nav-admin-login"><i class="fa-solid fa-user-shield"></i> Admin Login</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="admin.html"><i class="fa-solid fa-user-shield"></i> Admin Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======================== HERO ======================== -->
+  <section id="hero">
+    <!-- Animated background layers -->
+    <div class="hero-bg">
+      <div class="hero-gradient-orb orb-1"></div>
+      <div class="hero-gradient-orb orb-2"></div>
+      <div class="hero-gradient-orb orb-3"></div>
+      <div class="hero-grid"></div>
+      <canvas id="particleCanvas"></canvas>
+    </div>
+
+    <!-- Floating tool icons -->
+    <div class="floating-tools">
+      <div class="ftool ftool-1"><i class="fa-brands fa-adobe"></i></div>
+      <div class="ftool ftool-2"><i class="fa-solid fa-pen-nib"></i></div>
+      <div class="ftool ftool-3"><i class="fa-solid fa-film"></i></div>
+      <div class="ftool ftool-4"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <div class="ftool ftool-5"><i class="fa-solid fa-palette"></i></div>
+      <div class="ftool ftool-6"><i class="fa-solid fa-video"></i></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for Projects
+      </div>
+      
+      <h1 class="hero-name">Athar <span class="gradient-text">Jamil</span></h1>
+      <div class="hero-role">
+        <span class="role-prefix">I'm a </span>
+        <span class="typed-text" id="typedText"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-desc">Crafting visual identities and cinematic stories through bold design and seamless motion. Every pixel has a purpose.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary btn-glow">
+          <i class="fa-solid fa-eye"></i> View Work
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fa-solid fa-paper-plane"></i> Contact Me
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Projects</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Years Exp.</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Satisfaction</span></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ======================== TOOLS MARQUEE ======================== -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-content" id="marqueeContent">
+        <span><i class="fa-brands fa-adobe"></i> Adobe Photoshop</span>
+        <span><i class="fa-solid fa-pen-nib"></i> Adobe Illustrator</span>
+        <span><i class="fa-solid fa-film"></i> Adobe Dimensions</span>
+        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Light Room</span>
+        <span><i class="fa-solid fa-fire"></i> Canva</span>
+        <span><i class="fa-solid fa-video"></i> CapCut</span>
+        <span><i class="fa-solid fa-layer-group"></i> Corel Draw</span>
+        <span><i class="fa-solid fa-cube"></i> Filmora</span>
+        <span><i class="fa-brands fa-adobe"></i> Adobe Photoshop</span>
+        <span><i class="fa-solid fa-pen-nib"></i> Adobe Illustrator</span>
+        <span><i class="fa-solid fa-film"></i> Adobe Dimensions</span>
+        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Light Room</span>
+        <span><i class="fa-solid fa-fire"></i> Canva</span>
+        <span><i class="fa-solid fa-video"></i> CapCut</span>
+        <span><i class="fa-solid fa-layer-group"></i> Corel Draw</span>
+        <span><i class="fa-solid fa-cube"></i> Filmora</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== ABOUT ======================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-img-wrap">
+            <div class="about-img-frame">
+              <img src="assets/profile.jpg" alt="Athar Jamil Professional Portrait" class="about-profile-img" />
+            </div>
+            <div class="about-badge-float">
+              <i class="fa-solid fa-star"></i>
+              <span>Top Designer</span>
+            </div>
+            <div class="about-exp-float">
+              <span class="exp-num">4+</span>
+              <span class="exp-label">Years</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal-right">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Creating Visuals That <span class="gradient-text">Tell Stories</span></h2>
+          <p class="about-text">I'm <strong>Athar Jamil</strong>, a passionate Graphics Designer and Video Editor dedicated to transforming ideas into powerful visual experiences. With a keen eye for aesthetics and a mastery of industry-leading tools, I craft designs that don't just look great — they perform.</p>
+          <p class="about-text">From brand identity and social media content to cinematic video edits and engaging reels, I bring creativity and precision to every project.</p>
+          <div class="about-skills">
+            <div class="skill-tag"><i class="fa-solid fa-check-circle"></i> Brand Identity</div>
+            <div class="skill-tag"><i class="fa-solid fa-check-circle"></i> Motion Graphics</div>
+            <div class="skill-tag"><i class="fa-solid fa-check-circle"></i> Social Media Design</div>
+            <div class="skill-tag"><i class="fa-solid fa-check-circle"></i> Video Editing</div>
+            <div class="skill-tag"><i class="fa-solid fa-check-circle"></i> Thumbnail Design</div>
+            <div class="skill-tag"><i class="fa-solid fa-check-circle"></i> Reels & Short-form</div>
+          </div>
+          <a href="#contact" class="btn btn-primary btn-glow">
+            <i class="fa-solid fa-handshake"></i> Let's Work Together
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICES ======================== -->
+  <section id="services" class="section section-dark">
+    <div class="blob-bg blob-services"></div>
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-label">What I Do</div>
+        <h2 class="section-title">Premium <span class="gradient-text">Services</span></h2>
+        <p class="section-sub">Tailored creative solutions for businesses and individuals who demand excellence.</p>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Services loaded from Firebase -->
+        <div class="services-loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PROJECTS ======================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-label">My Work</div>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-sub">A curated selection of work across design, branding, and visual storytelling.</p>
+      </div>
+      <div class="filter-bar reveal-up" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <div class="projects-loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Project Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-overlay" id="lightboxOverlay"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightboxImg" src="" alt="" />
+        <div class="lightbox-info">
+          <span class="lightbox-cat" id="lightboxCat"></span>
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== VIDEOS ======================== -->
+  <section id="videos" class="section section-dark">
+    <div class="video-streaks">
+      <div class="streak s1"></div>
+      <div class="streak s2"></div>
+      <div class="streak s3"></div>
+      <div class="streak s4"></div>
+    </div>
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-label">Motion Work</div>
+        <h2 class="section-title">Video <span class="gradient-text">Showcase</span></h2>
+        <p class="section-sub">Cinematic edits, reels, and branded video content that captivates.</p>
+      </div>
+      <div class="videos-grid" id="videosGrid">
+        <div class="videos-loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+      <div class="video-modal-overlay" id="videoModalOverlay"></div>
+      <div class="video-modal-content">
+        <button class="video-modal-close" id="videoModalClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="video-embed-wrap">
+          <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="video-modal-info">
+          <h3 id="videoModalTitle"></h3>
+          <p id="videoModalDesc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== CONTACT ======================== -->
+  <section id="contact" class="section">
+    <div class="blob-bg blob-contact"></div>
+    <div class="container">
+      <div class="section-header reveal-up">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Let's Create Something <span class="gradient-text">Extraordinary</span></h2>
+        <p class="section-sub">Have a project in mind? I'd love to hear about it. Reach out and let's make magic.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal-up">
+          <div class="contact-icon-wrap whatsapp-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>Chat directly for quick responses and project discussions.</p>
+          <a href="https://wa.me/923029161565" target="_blank" class="btn btn-whatsapp btn-glow">
+            <i class="fa-brands fa-whatsapp"></i> Message on WhatsApp
+          </a>
+        </div>
+        <div class="contact-card contact-card-center reveal-up">
+          <div class="contact-center-glow"></div>
+          <h2>Ready to<br/><span class="gradient-text">Work Together?</span></h2>
+          <p>From concept to final delivery — let's build something you're proud of.</p>
+          <div class="contact-info-row">
+            <i class="fa-solid fa-phone"></i>
+            <span>+92-302-9161565</span>
+          </div>
+          <div class="contact-info-row">
+            <i class="fa-solid fa-envelope"></i>
+            <span>athargraphic045@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-card reveal-up">
+          <div class="contact-icon-wrap email-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <h3>Email</h3>
+          <p>Send detailed project briefs and requirements via email.</p>
+          <a href="mailto:athargraphic045@gmail.com" class="btn btn-email btn-glow">
+            <i class="fa-solid fa-envelope"></i> Send an Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer id="footer">
+    <div class="footer-wave"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Athar Jamil" onerror="this.style.display='none'" />
+          <span class="footer-name">Athar <em>Jamil</em></span>
+          <p>Graphics Designer & Video Editor crafting visual stories that inspire and convert.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-col">
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-phone"></i> 03029161565</p>
+          <p><i class="fa-solid fa-envelope"></i> athargraphic045@gmail.com</p>
+          <div class="footer-socials">
+            <a href="https://wa.me/923029161565" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="mailto:athargraphic045@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="footerYear"></span> Athar Jamil. All rights reserved.</p>
+        <a href="admin.html" class="footer-admin-link">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

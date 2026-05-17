@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Athar Jamil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ======================== LOGIN PAGE ======================== -->
+  <div id="loginPage">
+    <div class="login-bg">
+      <div class="login-orb o1"></div>
+      <div class="login-orb o2"></div>
+    </div>
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="assets/logo.png" alt="Athar Jamil" onerror="this.style.display='none'" />
+      </div>
+      <p class="login-sub">Sign in to manage your portfolio</p>
+
+      <div class="form-group">
+        <label>Email</label>
+        <div class="input-wrap">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="loginEmail" placeholder="admin@email.com" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="loginPassword" placeholder="••••••••" />
+          <button class="toggle-pw" id="togglePw" type="button">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="loginError" class="login-error"></div>
+      <button class="btn-login" id="loginBtn">
+        <span id="loginBtnText">Sign In</span>
+        <div class="btn-spinner" id="loginSpinner"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================== DASHBOARD ======================== -->
+  <div id="dashboard" class="hidden">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="assets/logo.png" alt="Athar Jamil" onerror="this.style.display='none'" />
+        <div>
+          <div class="sidebar-name">Athar Jamil</div>
+          <div class="sidebar-role">Admin</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-btn active" data-tab="projects">
+          <i class="fa-solid fa-images"></i> Projects
+        </button>
+        <button class="sidebar-btn" data-tab="videos">
+          <i class="fa-solid fa-film"></i> Videos
+        </button>
+        <button class="sidebar-btn" data-tab="services">
+          <i class="fa-solid fa-list-check"></i> Services
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="index.html" target="_blank" class="sidebar-view-site">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Site
+        </a>
+        <button class="sidebar-logout" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Mobile sidebar toggle -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Main content -->
+    <main class="dash-main">
+
+      <!-- ── PROJECTS TAB ── -->
+      <div class="tab-panel active" id="tab-projects">
+        <div class="panel-header">
+          <div>
+            <h2>Projects</h2>
+            <p>Manage your portfolio projects</p>
+          </div>
+          <button class="btn-add" id="addProjectBtn">
+            <i class="fa-solid fa-plus"></i> Add Project
+          </button>
+        </div>
+
+        <!-- Add/Edit Form -->
+        <div class="admin-form-card hidden" id="projectForm">
+          <h3 id="projectFormTitle">Add New Project</h3>
+          <input type="hidden" id="projectId" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Title *</label>
+              <input type="text" id="projectTitle" placeholder="Project title" />
+            </div>
+            <div class="form-group">
+              <label>Category *</label>
+              <input type="text" id="projectCategory" placeholder="e.g. Branding, Poster" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="projectDesc" rows="3" placeholder="Brief description of the project..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Project Image</label>
+            <div class="file-drop-zone" id="projectImgDrop">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>Click or drag image here</span>
+              <input type="file" id="projectImg" accept="image/*" />
+            </div>
+            <div class="img-preview-wrap hidden" id="projectImgPreview">
+              <img id="projectImgPreviewImg" src="" alt="" />
+              <button class="img-preview-remove" id="removeProjectImg">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="upload-progress hidden" id="projectUploadProgress">
+              <div class="progress-bar" id="projectProgressBar"></div>
+              <span id="projectProgressText">0%</span>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" id="cancelProjectBtn">Cancel</button>
+            <button class="btn-save" id="saveProjectBtn">
+              <span id="saveProjectText">Save Project</span>
+              <div class="btn-spinner hidden" id="saveProjectSpinner"></div>
+            </button>
+          </div>
+          <div class="form-msg hidden" id="projectFormMsg"></div>
+        </div>
+
+        <!-- Projects list -->
+        <div class="admin-items-grid" id="projectsList">
+          <div class="admin-loading"><div class="spinner"></div></div>
+        </div>
+      </div>
+
+      <!-- ── VIDEOS TAB ── -->
+      <div class="tab-panel hidden" id="tab-videos">
+        <div class="panel-header">
+          <div>
+            <h2>Videos</h2>
+            <p>Manage your video showcase</p>
+          </div>
+          <button class="btn-add" id="addVideoBtn">
+            <i class="fa-solid fa-plus"></i> Add Video
+          </button>
+        </div>
+
+        <div class="admin-form-card hidden" id="videoForm">
+          <h3 id="videoFormTitle">Add New Video</h3>
+          <input type="hidden" id="videoId" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Title *</label>
+              <input type="text" id="videoTitle" placeholder="Video title" />
+            </div>
+            <div class="form-group">
+              <label>Video URL *</label>
+              <input type="url" id="videoUrl" placeholder="YouTube or Vimeo URL" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="videoDesc" rows="3" placeholder="Brief description..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Thumbnail Image</label>
+            <div class="file-drop-zone" id="videoThumbDrop">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>Click or drag thumbnail here</span>
+              <input type="file" id="videoThumb" accept="image/*" />
+            </div>
+            <div class="img-preview-wrap hidden" id="videoThumbPreview">
+              <img id="videoThumbPreviewImg" src="" alt="" />
+              <button class="img-preview-remove" id="removeVideoThumb">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="upload-progress hidden" id="videoUploadProgress">
+              <div class="progress-bar" id="videoProgressBar"></div>
+              <span id="videoProgressText">0%</span>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" id="cancelVideoBtn">Cancel</button>
+            <button class="btn-save" id="saveVideoBtn">
+              <span id="saveVideoText">Save Video</span>
+              <div class="btn-spinner hidden" id="saveVideoSpinner"></div>
+            </button>
+          </div>
+          <div class="form-msg hidden" id="videoFormMsg"></div>
+        </div>
+
+        <div class="admin-items-grid" id="videosList">
+          <div class="admin-loading"><div class="spinner"></div></div>
+        </div>
+      </div>
+
+      <!-- ── SERVICES TAB ── -->
+      <div class="tab-panel hidden" id="tab-services">
+        <div class="panel-header">
+          <div>
+            <h2>Services</h2>
+            <p>Manage your offered services</p>
+          </div>
+          <button class="btn-add" id="addServiceBtn">
+            <i class="fa-solid fa-plus"></i> Add Service
+          </button>
+        </div>
+
+        <div class="admin-form-card hidden" id="serviceForm">
+          <h3 id="serviceFormTitle">Add New Service</h3>
+          <input type="hidden" id="serviceId" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Title *</label>
+              <input type="text" id="serviceTitle" placeholder="e.g. Graphic Design" />
+            </div>
+            <div class="form-group">
+              <label>Icon / Emoji</label>
+              <input type="text" id="serviceIcon" placeholder="e.g. 🎨 or fa-solid fa-pen" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="serviceDesc" rows="3" placeholder="Describe this service..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" id="cancelServiceBtn">Cancel</button>
+            <button class="btn-save" id="saveServiceBtn">
+              <span id="saveServiceText">Save Service</span>
+              <div class="btn-spinner hidden" id="saveServiceSpinner"></div>
+            </button>
+          </div>
+          <div class="form-msg hidden" id="serviceFormMsg"></div>
+        </div>
+
+        <div class="admin-items-list" id="servicesList">
+          <div class="admin-loading"><div class="spinner"></div></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div class="confirm-modal hidden" id="confirmModal">
+    <div class="confirm-overlay" id="confirmOverlay"></div>
+    <div class="confirm-box">
+      <div class="confirm-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3>Delete this item?</h3>
+      <p>This action cannot be undone.</p>
+      <div class="confirm-actions">
+        <button class="btn-secondary" id="confirmCancel">Cancel</button>
+        <button class="btn-delete-confirm" id="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js" type="module"></script>
+</body>
+</html>
